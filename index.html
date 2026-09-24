@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voo TAM 3054 — Trabalho Acadêmico</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Oswald:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0a0a0d;
+    --ink:#f2efe9;
+    --muted:#a9a49c;
+    --accent:#c9522f;
+    --line:rgba(242,239,233,.14);
+
+    --serif-display:'Playfair Display', Georgia, serif;
+    --serif-corpo:'Source Serif 4', Georgia, serif;
+    --sans-jornal:'Oswald', Arial, sans-serif;
+  }
+
+  *{
+    box-sizing:border-box;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--serif-corpo);
+    line-height:1.65;
+  }
+
+  .topo{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:50;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 28px;
+
+    font-family:var(--sans-jornal);
+    font-weight:500;
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+
+    color:var(--muted);
+    mix-blend-mode:difference;
+  }
+
+  .secao{
+    max-width:720px;
+    margin:0 auto;
+    padding:110px 28px;
+  }
+
+  .secao h2{
+    font-family:var(--sans-jornal);
+    font-weight:600;
+    font-size:.75rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+
+    color:var(--accent);
+
+    margin-bottom:18px;
+  }
+
+  .secao h1{
+    font-family:var(--serif-display);
+    font-size:2.5rem;
+    font-weight:700;
+    letter-spacing:-.01em;
+
+    margin:0 0 22px;
+  }
+
+  .secao p{
+    color:var(--muted);
+    font-size:1.08rem;
+
+    margin:0 0 16px;
+  }
+
+  .secao > p:first-of-type::first-letter{
+    font-family:var(--serif-display);
+    font-weight:900;
+    font-size:3.6rem;
+
+    float:left;
+    line-height:.78;
+
+    padding:4px 10px 0 0;
+
+    color:var(--ink);
+  }
+
+  .rotulo-placeholder{
+    display:inline-block;
+
+    font-family:var(--sans-jornal);
+    font-weight:500;
+    font-size:.63rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+
+    color:#6b6862;
+
+    border:1px solid var(--line);
+    padding:3px 8px;
+
+    border-radius:2px;
+
+    margin-bottom:18px;
+  }
+
+  /* =========================================================
+     CAPA
+     ========================================================= */
+
+  .capa{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:96px 20px 48px;
+
+    position:relative;
+  }
+
+  .nameplate{
+    text-align:center;
+
+    padding-bottom:18px;
+
+    border-bottom:3px double var(--line);
+
+    margin-bottom:22px;
+  }
+
+  .nameplate .kicker{
+    font-family:var(--sans-jornal);
+    font-weight:500;
+    font-size:.68rem;
+
+    letter-spacing:.28em;
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    margin-bottom:14px;
+  }
+
+  .nameplate .manchete{
+    font-family:var(--serif-display);
+    font-weight:900;
+    font-style:italic;
+
+    font-size:clamp(2.6rem, 12vw, 5.6rem);
+
+    line-height:.96;
+    letter-spacing:-.01em;
+
+    margin:0;
+  }
+
+  .linha-edicao{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-family:var(--sans-jornal);
+    font-size:.68rem;
+
+    letter-spacing:.1em;
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    padding-top:14px;
+  }
+
+  .linha-edicao .data{
+    color:var(--accent);
+  }
+
+  .capa-corpo{
+    flex:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:36px 0;
+  }
+
+  .capa-foto-wrap{
+    position:relative;
+
+    max-width:560px;
+    width:100%;
+  }
+
+  .capa-foto-wrap img{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    border:1px solid var(--line);
+
+    filter:brightness(.95) saturate(1.05);
+  }
+
+  .capa-legenda{
+    display:flex;
+    justify-content:space-between;
+
+    gap:16px;
+
+    padding-top:10px;
+
+    font-family:var(--sans-jornal);
+    font-size:.66rem;
+
+    letter-spacing:.06em;
+    text-transform:uppercase;
+
+    color:#6b6862;
+  }
+
+  .capa-legenda em{
+    font-family:var(--serif-corpo);
+
+    font-style:italic;
+
+    text-transform:none;
+    letter-spacing:0;
+
+    color:var(--muted);
+
+    font-size:.78rem;
+  }
+
+  .capa-dek{
+    max-width:640px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    font-family:var(--serif-corpo);
+
+    font-size:1.15rem;
+
+    color:var(--muted);
+
+    padding:8px 12px 0;
+  }
+
+  .capa-dek strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  .seta{
+    display:block;
+
+    text-align:center;
+
+    margin-top:34px;
+
+    font-family:var(--sans-jornal);
+
+    font-size:.68rem;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    animation:flutua 2.2s ease-in-out infinite;
+  }
+
+  @keyframes flutua{
+    0%,100%{
+      transform:translateY(0);
+      opacity:.6;
+    }
+
+    50%{
+      transform:translateY(8px);
+      opacity:1;
+    }
+  }
+
+  /* =========================================================
+     CENA COM VÍDEO CONTROLADO PELO SCROLL
+     ========================================================= */
+
+  .cena-scroll{
+    position:relative;
+
+    height:850vh;
+  }
+
+  .cena-fixa{
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    background:#000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  #video{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:brightness(.9) saturate(1.05);
+
+    display:block;
+  }
+
+  #video::-webkit-media-controls{
+    display:none !important;
+  }
+
+  .veu{
+    position:absolute;
+
+    inset:0;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.6) 0%,
+        rgba(0,0,0,0) 22%,
+        rgba(0,0,0,0) 70%,
+        rgba(0,0,0,.8) 100%
+      );
+
+    pointer-events:none;
+  }
+
+  .barra-progresso{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    height:3px;
+
+    background:var(--accent);
+
+    z-index:6;
+
+    width:0%;
+  }
+
+  .legenda{
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:56px;
+
+    z-index:5;
+
+    max-width:560px;
+
+    font-family:var(--sans-jornal);
+
+    opacity:0;
+
+    transform:translateY(14px);
+
+    transition:
+      opacity .45s ease,
+      transform .45s ease;
+
+    pointer-events:none;
+  }
+
+  .legenda.ativa{
+    opacity:1;
+
+    transform:translateY(0);
+  }
+
+  .legenda .rotulo-placeholder{
+    margin-bottom:10px;
+  }
+
+  .legenda h3{
+    font-family:var(--serif-display);
+
+    font-weight:700;
+
+    font-size:1.6rem;
+
+    margin:0 0 8px;
+
+    color:var(--ink);
+  }
+
+  .legenda p{
+    font-family:var(--serif-corpo);
+
+    font-size:.95rem;
+
+    color:var(--muted);
+
+    margin:0;
+
+    max-width:480px;
+  }
+
+  /* =========================================================
+     LINHA DO TEMPO
+     ========================================================= */
+
+  .marco{
+    display:flex;
+
+    gap:24px;
+
+    max-width:720px;
+
+    margin:0 auto 46px;
+
+    padding:0 28px;
+  }
+
+  .marco .hora{
+    flex:0 0 80px;
+
+    font-family:var(--sans-jornal);
+
+    font-weight:500;
+
+    color:var(--accent);
+
+    font-size:.85rem;
+
+    padding-top:2px;
+  }
+
+  .marco .texto{
+    border-left:1px solid var(--line);
+
+    padding-left:24px;
+  }
+
+  .marco .texto h3{
+    font-family:var(--serif-display);
+
+    font-weight:700;
+
+    margin:0 0 8px;
+
+    font-size:1.2rem;
+  }
+
+  .marco .texto p{
+    margin:0;
+
+    color:var(--muted);
+  }
+
+  footer{
+    text-align:center;
+
+    padding:80px 28px 60px;
+
+    font-family:var(--sans-jornal);
+
+    font-size:.7rem;
+
+    letter-spacing:.1em;
+
+    text-transform:uppercase;
+
+    color:#514e49;
+  }
+
+  /* =========================================================
+     RESPONSIVO
+     ========================================================= */
+
+  @media(max-width:600px){
+
+    .topo{
+      padding:14px 18px;
+      font-size:.58rem;
+    }
+
+    .secao{
+      padding:90px 22px;
+    }
+
+    .secao h1{
+      font-size:2.1rem;
+    }
+
+    .secao p{
+      font-size:1rem;
+    }
+
+    .linha-edicao{
+      font-size:.56rem;
+      gap:15px;
+    }
+
+    .capa{
+      padding-left:16px;
+      padding-right:16px;
+    }
+
+    .capa-dek{
+      font-size:1rem;
+    }
+
+    .legenda{
+      left:20px;
+      right:20px;
+      bottom:35px;
+    }
+
+    .legenda h3{
+      font-size:1.35rem;
+    }
+
+    .legenda p{
+      font-size:.86rem;
+    }
+
+    .marco{
+      gap:15px;
+      padding:0;
+    }
+
+    .marco .hora{
+      flex:0 0 55px;
+      font-size:.75rem;
+    }
+
+    .marco .texto{
+      padding-left:15px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     CABEÇALHO
+     ========================================================= -->
+
+<div class="topo">
+  <span>Trabalho acadêmico</span>
+  <span>Voo TAM 3054</span>
+</div>
+
+
+<!-- =========================================================
+     CAPA
+     ========================================================= -->
+
+<section class="capa">
+
+  <div class="nameplate">
+
+    <div class="kicker">
+      Estudo de caso — Segurança da Aviação Civil
+    </div>
+
+    <h1 class="manchete">
+      Voo TAM 3054
+    </h1>
+
+    <div class="linha-edicao">
+
+      <span>
+        Edição especial
+      </span>
+
+      <span class="data">
+        Congonhas, São Paulo — 17 jul. 2007
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="capa-corpo">
+
+    <div class="capa-foto-wrap">
+
+      <img
+        src="midia/caos.jpeg"
+        alt="Cauda da aeronave TAM entre os destroços"
+      >
+
+      <div class="capa-legenda">
+
+        <em>
+          Destroços da aeronave após o acidente no Aeroporto de Congonhas
+        </em>
+
+        <span>
+          Foto: acervo
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <p class="capa-dek">
+
+    <strong>199 vítimas.</strong>
+
+    Em 17 de julho de 2007, o Airbus A320 PR-MBK,
+    que realizava o voo JJ3054, saiu da pista durante
+    o pouso em Congonhas, atravessou a Avenida Washington Luís
+    e atingiu instalações próximas ao aeroporto.
+
+  </p>
+
+
+  <div class="seta">
+    role para continuar ↓
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTRODUÇÃO
+     ========================================================= -->
+
+<section class="secao">
+
+  <span class="rotulo-placeholder">
+    contexto do acidente
+  </span>
+
+  <h2>
+    Introdução
+  </h2>
+
+  <h1>
+    Contextualização do acidente
+  </h1>
+
+  <p>
+    Em 17 de julho de 2007, o voo JJ3054 da TAM Linhas Aéreas,
+    operado por um Airbus A320-233 de matrícula PR-MBK,
+    decolou de Porto Alegre com destino ao Aeroporto de Congonhas,
+    em São Paulo. A aeronave transportava 187 pessoas,
+    sendo 181 passageiros e seis tripulantes ativos.
+  </p>
+
+  <p>
+    A aproximação para a pista 35L ocorreu sob condições de
+    pista molhada e escorregadia. A aeronave pousou às 18h54,
+    mas não desacelerou como previsto. Após perder o controle
+    direcional, saiu lateralmente da pista, atravessou a Avenida
+    Washington Luís e atingiu um posto de combustíveis e o
+    edifício da TAM Express.
+  </p>
+
+  <p>
+    Todas as 187 pessoas a bordo morreram, além de outras
+    12 pessoas que estavam em solo, totalizando 199 vítimas fatais.
+  </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     VÍDEO / SEQUÊNCIA DO ACIDENTE
+     ========================================================= -->
+
+<section class="cena-scroll" id="cena">
+
+  <div class="cena-fixa">
+
+    <div
+      class="barra-progresso"
+      id="barra">
+    </div>
+
+
+    <video
+      id="video"
+      muted
+      playsinline
+      webkit-playsinline="true"
+      disablePictureInPicture
+      disableRemotePlayback
+      preload="auto"
+      poster="midia/queda-congonhas.mp4">
+    </video>
+
+
+    <div class="veu"></div>
+
+
+    <!-- =====================================================
+         LEGENDA 1
+         ===================================================== -->
+
+    <div
+      class="legenda"
+      data-inicio="0"
+      data-fim="0.16">
+
+      <span class="rotulo-placeholder">
+        aproximação final
+      </span>
+
+      <h3>
+        Chegada a Congonhas
+      </h3>
+
+      <p>
+        O Airbus A320 PR-MBK realizava a aproximação para
+        a pista 35L de Congonhas. A tripulação havia sido
+        informada de que a pista estava molhada e escorregadia.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         LEGENDA 2
+         ===================================================== -->
+
+    <div
+      class="legenda"
+      data-inicio="0.16"
+      data-fim="0.38">
+
+      <span class="rotulo-placeholder">
+        18h54 — pouso
+      </span>
+
+      <h3>
+        Contato com a pista
+      </h3>
+
+      <p>
+        Às 18h54, a aeronave tocou a pista. O reversor
+        do motor nº 2 estava desativado conforme a MEL.
+        Após o toque, os ground spoilers não foram defletidos
+        e o autobrake não foi acionado.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         LEGENDA 3
+         ===================================================== -->
+
+    <div
+      class="legenda"
+      data-inicio="0.38"
+      data-fim="0.60">
+
+      <span class="rotulo-placeholder">
+        desaceleração
+      </span>
+
+      <h3>
+        Frenagem comprometida
+      </h3>
+
+      <p>
+        A aeronave não desacelerou como previsto. Cerca de
+        seis segundos após o toque do trem principal, os freios
+        começaram a ser acionados pelos pedais, atingindo a
+        máxima deflexão aproximadamente cinco segundos depois.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         LEGENDA 4
+         ===================================================== -->
+
+    <div
+      class="legenda"
+      data-inicio="0.60"
+      data-fim="0.82">
+
+      <span class="rotulo-placeholder">
+        perda de controle no solo
+      </span>
+
+      <h3>
+        Saída da pista
+      </h3>
+
+      <p>
+        O A320 perdeu a reta para a esquerda e saiu lateralmente
+        da pista 35L. A aeronave atravessou a Avenida Washington
+        Luís em direção ao posto de combustíveis e ao edifício
+        da TAM Express.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         LEGENDA 5
+         ===================================================== -->
+
+    <div
+      class="legenda"
+      data-inicio="0.82"
+      data-fim="1.01">
+
+      <span class="rotulo-placeholder">
+        impacto e incêndio
+      </span>
+
+      <h3>
+        Impacto final
+      </h3>
+
+      <p>
+        A aeronave colidiu com o edifício da TAM Express e
+        com um posto de combustíveis. O impacto provocou
+        um grande incêndio e a destruição completa da aeronave.
+        As 187 pessoas a bordo e 12 pessoas em solo morreram.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INVESTIGAÇÃO
+     ========================================================= -->
+
+<section class="secao">
+
+  <span class="rotulo-placeholder">
+    análise do CENIPA
+  </span>
+
+  <h2>
+    Investigação
+  </h2>
+
+  <h1>
+    Fatores contribuintes
+  </h1>
+
+  <p>
+    A investigação do CENIPA identificou uma combinação de
+    fatores humanos, operacionais, organizacionais e relacionados
+    às condições do aeródromo. O relatório classificou diferentes
+    fatores como contribuintes ou indeterminados, analisando a
+    atuação da tripulação, as condições da pista, os sistemas
+    da aeronave e os procedimentos operacionais.
+  </p>
+
+
+  <div style="height:24px"></div>
+
+
+  <!-- MARCO 1 -->
+
+  <div class="marco">
+
+    <div class="hora">
+      13 jul.
+    </div>
+
+    <div class="texto">
+
+      <h3>
+        Reversor do motor nº 2 desativado
+      </h3>
+
+      <p>
+        O reversor do motor nº 2 havia sido desativado pela
+        manutenção quatro dias antes do acidente devido a um
+        vazamento no atuador interno. A aeronave foi liberada
+        para operação de acordo com a MEL vigente.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- MARCO 2 -->
+
+  <div class="marco">
+
+    <div class="hora">
+      17 jul.
+    </div>
+
+    <div class="texto">
+
+      <h3>
+        Pista molhada e escorregadia
+      </h3>
+
+      <p>
+        A pista 35L de Congonhas estava molhada e escorregadia.
+        O aeroporto vinha operando sob chuva nos dias anteriores,
+        e a investigação analisou as condições de atrito,
+        textura e drenagem da superfície da pista.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- MARCO 3 -->
+
+  <div class="marco">
+
+    <div class="hora">
+      18:54
+    </div>
+
+    <div class="texto">
+
+      <h3>
+        Falha na desaceleração após o pouso
+      </h3>
+
+      <p>
+        Após o toque, os ground spoilers não foram defletidos
+        e o autobrake não foi acionado. O relatório registrou
+        ainda que um dos manetes permaneceu em CL enquanto o
+        outro estava em IDLE, situação que afetou o comportamento
+        do sistema de controle de potência.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONSEQUÊNCIAS
+     ========================================================= -->
+
+<section class="secao">
+
+  <span class="rotulo-placeholder">
+    segurança operacional
+  </span>
+
+  <h2>
+    Consequências e legado
+  </h2>
+
+  <h1>
+    Mudanças na aviação civil brasileira
+  </h1>
+
+  <p>
+    O acidente do voo TAM 3054 provocou uma ampla revisão
+    das condições de operação em Congonhas e dos procedimentos
+    relacionados a pousos em pistas molhadas. Entre as
+    recomendações emitidas após o acidente estavam medidas
+    relacionadas ao atrito e à macrotextura da pista,
+    ao acompanhamento das condições de superfície e à
+    operação de aeronaves com reversores inoperantes.
+  </p>
+
+  <p>
+    Em abril de 2008, a ANAC emitiu uma norma proibindo
+    operações em Congonhas com a pista molhada quando nem
+    todos os reversores de empuxo da aeronave estivessem
+    disponíveis. O caso também reforçou a importância do
+    gerenciamento de risco, da coordenação de cabine e
+    da prevenção de excursões de pista.
+  </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     MEMÓRIA
+     ========================================================= -->
+
+<section
+  class="secao"
+  style="
+    text-align:center;
+    padding-top:40px;
+    padding-bottom:120px;
+  "
+>
+
+  <h2 style="color:var(--muted)">
+    Em memória
+  </h2>
+
+  <p
+    style="
+      font-size:1.2rem;
+      color:var(--ink);
+    "
+  >
+    Às 199 vítimas do voo TAM 3054.
+  </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+
+<footer>
+
+  Trabalho acadêmico — Voo TAM 3054
+
+  <br><br>
+
+  Fontes principais:
+  CENIPA — Relatório Final A-67/CENIPA/2009;
+  ANAC — documentação e recomendações relacionadas ao acidente.
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+const cena = document.getElementById('cena');
+
+const video = document.getElementById('video');
+
+const barra = document.getElementById('barra');
+
+const legendas = document.querySelectorAll('.legenda');
+
+
+let duracao = 0;
+
+
+video.muted = true;
+
+video.defaultMuted = true;
+
+video.playsInline = true;
+
+video.setAttribute(
+  'webkit-playsinline',
+  'true'
+);
+
+video.disablePictureInPicture = true;
+
+video.src = "midia/queda-congonhas.mp4";
+
+video.load();
+
+
+
+/* =========================================================
+   EVITAR FULLSCREEN AUTOMÁTICO NO IOS
+   ========================================================= */
+
+video.addEventListener(
+  'webkitbeginfullscreen',
+  () => {
+
+    try{
+      video.webkitExitFullscreen();
+    }
+
+    catch(e){}
+
+  }
+);
+
+
+
+/* =========================================================
+   PREPARAÇÃO DO PRIMEIRO FRAME
+   ========================================================= */
+
+let preparado = false;
+
+
+function prepararPrimeiroFrame(){
+
+  if(preparado)
+    return;
+
+
+  video.muted = true;
+
+  video.playsInline = true;
+
+
+  const p = video.play();
+
+
+  if(p !== undefined){
+
+    p.then(() => {
+
+      video.pause();
+
+
+      try{
+        video.webkitExitFullscreen();
+      }
+
+      catch(e){}
+
+
+      preparado = true;
+
+      atualizar();
+
+    })
+
+
+    .catch(() => {});
+
+  }
+
+}
+
+
+
+video.addEventListener(
+  'loadeddata',
+  prepararPrimeiroFrame
+);
+
+
+video.addEventListener(
+  'canplay',
+  prepararPrimeiroFrame
+);
+
+
+window.addEventListener(
+  'scroll',
+  prepararPrimeiroFrame,
+  { once:true }
+);
+
+
+window.addEventListener(
+  'touchstart',
+  prepararPrimeiroFrame,
+  { once:true }
+);
+
+
+
+/* =========================================================
+   DURAÇÃO DO VÍDEO
+   ========================================================= */
+
+video.addEventListener(
+  'loadedmetadata',
+  () => {
+
+    duracao = video.duration;
+
+    atualizar();
+
+  }
+);
+
+
+
+/* =========================================================
+   IMPEDIR REPRODUÇÃO NORMAL
+   ========================================================= */
+
+video.addEventListener(
+  'play',
+  () => {
+
+    if(preparado)
+      video.pause();
+
+  }
+);
+
+
+
+/* =========================================================
+   ERRO DE VÍDEO
+   ========================================================= */
+
+video.addEventListener(
+  'error',
+  () => {
+
+    console.error(
+      'Erro ao carregar vídeo',
+      video.error
+    );
+
+  }
+);
+
+
+
+/* =========================================================
+   ATUALIZAÇÃO DO VÍDEO PELO SCROLL
+   ========================================================= */
+
+function atualizar(){
+
+  if(!duracao)
+    return;
+
+
+  const rect =
+    cena.getBoundingClientRect();
+
+
+  const alturaTotal =
+    cena.offsetHeight -
+    window.innerHeight;
+
+
+  let progresso =
+    -rect.top /
+    alturaTotal;
+
+
+  progresso =
+    Math.min(
+      Math.max(progresso, 0),
+      1
+    );
+
+
+  video.currentTime =
+    progresso * duracao;
+
+
+  barra.style.width =
+    (progresso * 90) + '%';
+
+
+
+  /* =======================================================
+     CONTROLE DAS LEGENDAS
+     ======================================================= */
+
+  legendas.forEach(leg => {
+
+    const inicio =
+      parseFloat(
+        leg.dataset.inicio
+      );
+
+
+    const fim =
+      parseFloat(
+        leg.dataset.fim
+      );
+
+
+    if(
+      progresso >= inicio &&
+      progresso < fim
+    ){
+
+      leg.classList.add(
+        'ativa'
+      );
+
+    }
+
+    else{
+
+      leg.classList.remove(
+        'ativa'
+      );
+
+    }
+
+  });
+
+}
+
+
+
+/* =========================================================
+   SCROLL COM REQUESTANIMATIONFRAME
+   ========================================================= */
+
+let ticking = false;
+
+
+window.addEventListener(
+  'scroll',
+  () => {
+
+    if(!ticking){
+
+      requestAnimationFrame(
+        () => {
+
+          atualizar();
+
+          ticking = false;
+
+        }
+      );
+
+      ticking = true;
+
+    }
+
+  }
+);
+
+
+
+/* =========================================================
+   RESIZE
+   ========================================================= */
+
+window.addEventListener(
+  'resize',
+  atualizar
+);
+
+
+
+/* =========================================================
+   LOAD
+   ========================================================= */
+
+window.addEventListener(
+  'load',
+  atualizar
+);
+
+</script>
+
+</body>
+</html>
